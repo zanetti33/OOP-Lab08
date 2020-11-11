@@ -1,6 +1,6 @@
 # Work with MVC
 
-This application is the same in the main course slides, with minor improvements (the code here is not required to fit to few slides). Refer to to slides to understand how the application works.
+This application is the same in the main course slides, with minor improvements (the code here is not required to fit to few slides). Refer to the slides to understand how the application works.
 We will enrich the example by adding I/O.
 
 ## Prepare the UI to show errors
