@@ -29,7 +29,7 @@ public final class SimpleGUI {
     /*
      * Once the Controller is done, implement this class in such a way that:
      * 
-     * 1) I has a main method that starts the graphical application
+     * 1) It has a main method that starts the graphical application
      * 
      * 2) In its constructor, sets up the whole view
      * 
