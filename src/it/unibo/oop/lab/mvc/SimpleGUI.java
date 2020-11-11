@@ -49,9 +49,10 @@ public final class SimpleGUI {
 
     /**
      * builds a new {@link SimpleGUI}.
+     * @param controller the controller instance.
      */
-    public SimpleGUI() {
-        this.controller = new SimpleController();
+    public SimpleGUI(final Controller controller) {
+        this.controller = controller;
         final JPanel canvas = new JPanel();
         canvas.setLayout(new BorderLayout());
         final JTextField textField = new JTextField();
@@ -75,15 +76,15 @@ public final class SimpleGUI {
         print.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
-                controller.setNextStringToPrint(textField.getText());
-                controller.printCurrentString();
+                SimpleGUI.this.controller.setNextStringToPrint(textField.getText());
+                SimpleGUI.this.controller.printCurrentString();
             }
         });
         showHistory.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
                 final StringBuilder text = new StringBuilder();
-                final List<String> history = controller.getPrintedStringsHistory();
+                final List<String> history = SimpleGUI.this.controller.getPrintedStringsHistory();
                 for (final String print: history) {
                     text.append(print);
                     text.append('\n');
@@ -126,6 +127,6 @@ public final class SimpleGUI {
      *            ignored
      */
     public static void main(final String[] args) {
-        new SimpleGUI().display();
+        new SimpleGUI(new SimpleController()).display();
     }
 }
