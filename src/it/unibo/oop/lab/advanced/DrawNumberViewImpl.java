@@ -91,7 +91,7 @@ public final class DrawNumberViewImpl implements DrawNumberView {
 
     @Override
     public void numberIncorrect() {
-        JOptionPane.showMessageDialog(frame, "Incorrect Number.. try again", "Incorrect Number",
+        JOptionPane.showMessageDialog(frame, "Incorrect Number... try again", "Incorrect Number",
                 JOptionPane.ERROR_MESSAGE);
     }
 
@@ -105,18 +105,21 @@ public final class DrawNumberViewImpl implements DrawNumberView {
         case YOU_WON:
             plainMessage(res.getDescription() + NEW_GAME);
             break;
+        case YOU_LOST:
+            JOptionPane.showMessageDialog(frame, res.getDescription() + NEW_GAME, "Lost", JOptionPane.WARNING_MESSAGE);
+            break;
         default:
             throw new IllegalStateException("Unexpected result: " + res);
         }
         observer.resetGame();
     }
 
-    @Override
-    public void limitsReached() {
-        JOptionPane.showMessageDialog(frame, "You lost" + NEW_GAME, "Lost", JOptionPane.WARNING_MESSAGE);
-    }
-
     private void plainMessage(final String msg) {
         JOptionPane.showMessageDialog(frame, msg, "Result", JOptionPane.PLAIN_MESSAGE);
+    }
+
+    @Override
+    public void displayError(final String message) {
+        JOptionPane.showMessageDialog(frame, message, "Error!", JOptionPane.ERROR_MESSAGE);
     }
 }
