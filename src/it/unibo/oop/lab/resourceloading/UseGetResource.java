@@ -31,7 +31,7 @@ public final class UseGetResource {
          * Access resources as streams
          */
         final InputStream in = ClassLoader.getSystemResourceAsStream("settings/settings");
-        String line = "Error accessing the resource";
+        String line;
         try (BufferedReader br = new BufferedReader(new InputStreamReader(in))) {
             line = br.readLine();
         }
