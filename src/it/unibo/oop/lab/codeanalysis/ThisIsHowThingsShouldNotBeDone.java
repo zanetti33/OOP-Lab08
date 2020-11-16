@@ -69,7 +69,6 @@ public class ThisIsHowThingsShouldNotBeDone {
          * Slow: use clear() instead!
          */
         c.removeAll(c);
-
     }
 
 }
