@@ -64,6 +64,13 @@
 		<property name="message"
 			value="Do not use @author. Changes and authors are tracked by the content manager." />
 	</module>
+	<module name="RegexpSingleline">
+		<property name="severity" value="warning" />
+		<property name="format" value="@version" />
+		<property name="fileExtensions" value="java,xtend,scala,kt" />
+		<property name="message"
+			value="Do not use @version. Changes and authors are tracked by the content manager." />
+	</module>
 
 	<module name="TreeWalker">
 		<module name="SuppressionCommentFilter">
