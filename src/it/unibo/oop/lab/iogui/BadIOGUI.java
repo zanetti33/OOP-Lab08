@@ -41,13 +41,20 @@ public class BadIOGUI {
         jPanel.setLayout(new BoxLayout(jPanel, BoxLayout.X_AXIS));
         canvas.setLayout(new BorderLayout());
         final JButton write = new JButton("Write on file");
+        final JButton read = new JButton("Read");
         canvas.add(jPanel, BorderLayout.CENTER);
         jPanel.add(write);
+        jPanel.add(read);
         frame.setContentPane(canvas);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         /*
          * Handlers
          */
+        read.addActionListener(new ActionListener() {
+            public void actionPerformed(final ActionEvent e) {
+                System.out.println("Button read pressed!");
+            }
+        });
         write.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
