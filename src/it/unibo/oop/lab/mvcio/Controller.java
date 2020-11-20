@@ -1,9 +1,13 @@
 package it.unibo.oop.lab.mvcio;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintStream;
+
 /**
  * 
  */
-public class Controller {
+public final class Controller {
 
     /*
      * This class must implement a simple controller responsible of I/O access. It
@@ -27,5 +31,24 @@ public class Controller {
      * System.getProperty("file.separator"). The combined use of those methods leads
      * to a software that runs correctly on every platform.
      */
-
+    private File file;
+    public Controller() {
+        this.file = new File(System.getProperty("user.home")
+                + System.getProperty("file.separator")
+                + "output.txt");
+    }
+    public void setFile(final String newFile) {
+        this.file = new File(newFile);
+    }
+    public String getFile() {
+        return this.file.toString();
+    }
+    public String getPath() {
+        return this.file.getPath().toString();
+    }
+    public void write(final String toWrite) throws IOException {
+        try (PrintStream writer = new PrintStream(this.file)) {
+            writer.print(toWrite);
+        }
+    }
 }
