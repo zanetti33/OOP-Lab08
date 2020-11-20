@@ -5,8 +5,14 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintStream;
+import java.nio.IntBuffer;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Random;
 
 import javax.swing.BoxLayout;
@@ -28,6 +34,7 @@ public class BadIOGUI {
     private static final String PATH = System.getProperty("user.home")
             + System.getProperty("file.separator")
             + BadIOGUI.class.getSimpleName() + ".txt";
+    private static final Path ACTUAL_PATH = Paths.get(PATH);
     private static final int PROPORTION = 5;
     private final Random rng = new Random();
     private final JFrame frame = new JFrame(TITLE);
@@ -52,7 +59,12 @@ public class BadIOGUI {
          */
         read.addActionListener(new ActionListener() {
             public void actionPerformed(final ActionEvent e) {
-                System.out.println("Button read pressed!");
+                try (BufferedReader br = Files.newBufferedReader(BadIOGUI.ACTUAL_PATH)) {
+                    System.out.println(br.readLine());
+                } catch (IOException er) {
+                    JOptionPane.showMessageDialog(frame, er, "Error", JOptionPane.ERROR_MESSAGE);
+                    er.printStackTrace();
+                }
             }
         });
         write.addActionListener(new ActionListener() {
