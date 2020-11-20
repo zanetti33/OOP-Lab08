@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.Random;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -36,9 +37,12 @@ public class BadIOGUI {
      */
     public BadIOGUI() {
         final JPanel canvas = new JPanel();
+        final JPanel jPanel = new JPanel();
+        jPanel.setLayout(new BoxLayout(jPanel, BoxLayout.X_AXIS));
         canvas.setLayout(new BorderLayout());
         final JButton write = new JButton("Write on file");
-        canvas.add(write, BorderLayout.CENTER);
+        canvas.add(jPanel, BorderLayout.CENTER);
+        jPanel.add(write);
         frame.setContentPane(canvas);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         /*
@@ -86,6 +90,7 @@ public class BadIOGUI {
         /*
          * OK, ready to pull the frame onscreen
          */
+        frame.pack();
         frame.setVisible(true);
     }
 
