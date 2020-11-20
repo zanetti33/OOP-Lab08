@@ -1,5 +1,5 @@
-#SpotBugs User Preferences
-#Fri Oct 30 11:59:51 CET 2020
+#FindBugs User Preferences
+#Thu Nov 19 18:34:20 CET 2020
 detectorExplicitSerialization=ExplicitSerialization|true
 detectorMultithreadedInstanceAccess=MultithreadedInstanceAccess|true
 detectorConfusionBetweenInheritedAndOuterMethod=ConfusionBetweenInheritedAndOuterMethod|true
@@ -41,6 +41,7 @@ detectorDontCatchIllegalMonitorStateException=DontCatchIllegalMonitorStateExcept
 detectorInconsistentAnnotations=InconsistentAnnotations|true
 detectorBadlyOverriddenAdapter=BadlyOverriddenAdapter|true
 detectorInstantiateStaticClass=InstantiateStaticClass|true
+cloud_id=edu.umd.cs.findbugs.cloud.doNothingCloud
 detectorCheckRelaxingNullnessAnnotation=CheckRelaxingNullnessAnnotation|true
 detectorMethodReturnCheck=MethodReturnCheck|true
 detectorEqualsOperandShouldHaveClassCompatibleWithThis=EqualsOperandShouldHaveClassCompatibleWithThis|true
