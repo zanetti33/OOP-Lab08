@@ -30,4 +30,8 @@ public interface DrawNumberView {
      */
     void limitsReached();
 
+    /**
+     * @param message to display to the user
+     */
+    void displayError(String message);
 }
